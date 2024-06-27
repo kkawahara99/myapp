@@ -1,8 +1,5 @@
 import express, { Application, Request, Response } from "express";
 import cors from "cors";
-import helloRoutes from './routes/helloRoutes';
-import articleRoutes from './routes/articleRoutes';
-import favoriteRoutes from './routes/favoriteRoutes';
 import examRoutes from './routes/examRoutes';
 import { errorHandler } from './utils/ErrorHandler';
 
@@ -12,9 +9,6 @@ app.use(cors({ origin: "*" }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use('/api', helloRoutes);
-app.use('/api/articles', articleRoutes);
-app.use('/api/favorite', favoriteRoutes);
 app.use('/api/exams', examRoutes);
 
 app.use(errorHandler);
