@@ -88,7 +88,7 @@ const ExamUpdate: React.FC = () => {
     axios
       .get(`${apiUrl}/exams/${id}`)
       .then(response => {
-        const body = JSON.parse(response.body);
+        const body = JSON.parse(response.data.body);
         const { exam_type, round, subject, question_number, question_text,
           answer, explanation,
           difficulty_level } = body.exam[0];

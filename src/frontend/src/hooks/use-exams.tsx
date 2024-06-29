@@ -28,7 +28,7 @@ export const useExams = (keyword: string) => {
 
     getExams(keyword, page)
       .then((response) => {
-        const body = JSON.parse(response.body);
+        const body = JSON.parse(response.data.body);
         setHitCount(body.count);
         const newExams = body.exams;
         // console.log(newExams);
