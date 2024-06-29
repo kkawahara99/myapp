@@ -15,7 +15,6 @@ export const appHandler = async (
     if (!app) {
       throw new Error('Express app initialization failed');
     }
-    console.log(`event: ${event}`);
 
     // Use serverless-http to proxy requests to Express
     const response = await handler(event, context);
@@ -23,11 +22,11 @@ export const appHandler = async (
     const result: APIGatewayProxyResult = {
       statusCode: 200,
       headers: {
-        'Access-Control-Allow-Origin': '*'
+        'Access-Control-Allow-Origin': '*',
+        "Access-Control-Allow-Headers": "Cache-Control",
       },
       body: JSON.stringify(response),
     };
-    console.log(`result: ${result}`);
 
     return result;
   } catch (error) {
