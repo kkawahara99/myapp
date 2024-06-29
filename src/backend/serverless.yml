@@ -14,7 +14,17 @@ functions:
       - http:
           path: api/exams
           method: GET
-          cors: true
+          cors:
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - Cache-Control
+            allowCredentials: false
       - http:
           path: api/exams/{id}
           method: GET

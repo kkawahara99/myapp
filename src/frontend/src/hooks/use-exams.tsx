@@ -28,8 +28,8 @@ export const useExams = (keyword: string) => {
 
     getExams(keyword, page)
       .then((response) => {
-        setHitCount(response.data.count);
-        const newExams = response.data.exams;
+        setHitCount(response.body.count);
+        const newExams = response.body.exams;
         // console.log(newExams);
         // setExams((prevExams) => [...prevExams, ...newExams]);
         // 重複アイテムを除外する

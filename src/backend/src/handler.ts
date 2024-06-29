@@ -36,7 +36,8 @@ export const appHandler = async (
     return {
       statusCode: 500,
       headers: {
-        'Access-Control-Allow-Origin': '*'
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': '*',
       },
       body: JSON.stringify({ message: 'Internal Server Error' }),
     };

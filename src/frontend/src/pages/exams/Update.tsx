@@ -90,14 +90,14 @@ const ExamUpdate: React.FC = () => {
       .then(response => {
         const { exam_type, round, subject, question_number, question_text,
           answer, explanation,
-          difficulty_level } = response.data.exam[0];
-        console.log(response.data.choices);
+          difficulty_level } = response.body.exam[0];
+        console.log(response.body.choices);
         setExamType(exam_type);
         setRound(round);
         setSubject(subject);
         setQuestionNumber(question_number);
         setQuestionText(question_text);
-        setChoices(response.data.choices);
+        setChoices(response.body.choices);
         setAnswer(answer);
         setExplanation(explanation);
         setDifficultyLevel(difficulty_level);
