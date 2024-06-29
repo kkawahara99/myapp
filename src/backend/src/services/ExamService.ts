@@ -147,6 +147,7 @@ class ExamService {
         `,
         exam
       );
+      console.log(result);
 
       // 選択肢を挿入
       for (const choice of choices) {

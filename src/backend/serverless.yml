@@ -1,0 +1,41 @@
+service: backend
+
+useDotenv: true
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: ap-northeast-1
+
+functions:
+  api:
+    handler: dist/handler.appHandler
+    events:
+      - http:
+          path: api/exams
+          method: GET
+          cors: true
+      - http:
+          path: api/exams/{id}
+          method: GET
+          cors: true
+      - http:
+          path: api/exams
+          method: POST
+          cors: true
+      - http:
+          path: api/exams/{id}
+          method: PUT
+          cors: true
+      - http:
+          path: api/exams/{id}
+          method: DELETE
+          cors: true
+    environment:
+      MYSQL_HOST: ${env:MYSQL_HOST}
+      MYSQL_PORT: ${env:MYSQL_PORT}
+      MYSQL_DATABASE: ${env:MYSQL_DATABASE}
+      MYSQL_USER: ${env:MYSQL_USER}
+      MYSQL_PASSWORD: ${env:MYSQL_PASSWORD}
+      PORT: ${env:PORT}
+

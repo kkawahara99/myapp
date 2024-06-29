@@ -5,12 +5,16 @@ const apiUrl = process.env.REACT_APP_API_URL;
 export const getExams = async (keyword: string, page: number) => {
   return axios.get(`${apiUrl}/exams`, {
     headers: {
-      "Cache-Control": "no-cache",
+      "Content-Type": "application/json",
     },
     params: { keyword, page }
   });
 };
 
 export const deleteExam = async (id: string) => {
-  return axios.delete(`${apiUrl}/exams/${id}`);
+  return axios.delete(`${apiUrl}/exams/${id}`, {
+    headers: {
+      "Content-Type": "application/json",
+    }
+  });
 };
