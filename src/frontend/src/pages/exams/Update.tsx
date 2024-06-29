@@ -88,16 +88,17 @@ const ExamUpdate: React.FC = () => {
     axios
       .get(`${apiUrl}/exams/${id}`)
       .then(response => {
+        const body = JSON.parse(response.body);
         const { exam_type, round, subject, question_number, question_text,
           answer, explanation,
-          difficulty_level } = response.body.exam[0];
-        console.log(response.body.choices);
+          difficulty_level } = body.exam[0];
+        console.log(body.choices);
         setExamType(exam_type);
         setRound(round);
         setSubject(subject);
         setQuestionNumber(question_number);
         setQuestionText(question_text);
-        setChoices(response.body.choices);
+        setChoices(body.choices);
         setAnswer(answer);
         setExplanation(explanation);
         setDifficultyLevel(difficulty_level);

@@ -33,8 +33,9 @@ export const ExamDetails: React.FC<ExamDetailsProps> = ({ examId }) => {
         },
       })
       .then((response) => {
-        setExam(response.body.exam[0]);
-        setChoices(response.body.choices.map((item: { choice_text: string; }) => item.choice_text));
+        const body = JSON.parse(response.body);
+        setExam(body.exam[0]);
+        setChoices(body.choices.map((item: { choice_text: string; }) => item.choice_text));
       })
       .catch((e) => {
         console.log(e.message);
